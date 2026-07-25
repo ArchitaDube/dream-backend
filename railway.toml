@@ -1,0 +1,13 @@
+# Railway deployment configuration for Oneiros API
+# https://docs.railway.com/reference/railway-toml
+
+[build]
+# Install Poetry and dependencies
+builder = "nixpacks"
+buildCommand = "pip install poetry==1.8.3 && poetry config virtualenvs.create false && poetry install --no-dev --no-interaction --no-ansi"
+
+[deploy]
+# Start FastAPI with uvicorn on Railway's $PORT
+startCommand = "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"
+restartPolicyType = "ON_FAILURE"
+numReplicas = 1
