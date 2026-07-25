@@ -3,6 +3,7 @@ name = "oneiros-api"
 version = "0.1.0"
 description = "Oneiros dream journaling API"
 authors = ["Oneiros"]
+packages = [{include = "app"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
