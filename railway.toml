@@ -4,12 +4,6 @@
 [build]
 builder = "nixpacks"
 
-# Override the default "pip install ." to use Poetry instead
-installCommand = "pip install poetry==1.8.3 && poetry config virtualenvs.create false && poetry install --no-dev --no-interaction --no-ansi"
-
-# No-op: dependencies already installed in installCommand
-buildCommand = "echo 'Build complete'"
-
 [deploy]
 startCommand = "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8000}"
 restartPolicyType = "ON_FAILURE"
